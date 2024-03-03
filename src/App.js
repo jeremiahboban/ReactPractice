@@ -6,8 +6,8 @@ function App() {
   const [role, setRole] = useState('devs');
   const showEmployees = true;
   return (
-    <div className="App bg-red-300"  >
-      {showEmployees ? 
+    <div className="App">
+      {showEmployees ? (
       <>
         <input 
           type='text' 
@@ -16,13 +16,37 @@ function App() {
             setRole(e.target.value);
           }}
         />
-        <Employee name="Jeremiah" role="intern"></Employee>
-        <Employee name="John"></Employee>
-        <Employee name="Abby" role={role}/>
-        </>
-      :
+        <div className="flex flex-wrap justify-center">
+          <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Employee 
+            name="Jeremiah" 
+            role="intern" 
+            img="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          
+        </div>
+      </>
+      ) :(
         <p>You cannot see the employees</p>
-      }
+      )}
   </div>
   );
 }
