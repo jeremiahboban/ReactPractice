@@ -13,31 +13,47 @@ function App() {
       img: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg"
     },
     {
+      id: 2,
       name: "Caleb",
       role: "Mentor",
       img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg"
     },
     {
+      id: 3,
       name: "Sarah",
       role: "Manager",
       img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
     },
     {
+      id: 4,
       name: "John",
       role: "Officer",
       img: "https://images.pexels.com/photos/2128807/pexels-photo-2128807.jpeg"
     },
     {
+      id: 5,
       name: "Corey",
       role: "Security",
       img: "https://images.pexels.com/photos/2232981/pexels-photo-2232981.jpeg"
     },
     {
+      id: 6,
       name: "Julia",
       role: "Accountant",
       img: "https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
   ]);
+
+  function updateEmployee(id, newName, newRole) {
+    const updatedEmployees = employees.map((employee) => {
+      if(id == employee.id) {
+        return {...employee, name: newName, role: newRole};  
+      }
+    return employee;
+    });
+    setEmployees(updatedEmployees);
+  }
+
   const showEmployees = true;
   return (
     <div className="App">
@@ -46,19 +62,19 @@ function App() {
           <input
             type='text'
             onChange={(e) => {
-              console.log(e.target.value);
               setRole(e.target.value);
             }}
           />
           <div className="flex flex-wrap justify-center">
             {employees.map((employee) => {
-              console.log(uuidv4());
               return (
                 <Employee
-                  key={uuidv4()}
+                  key={employee.id}
+                  id={employee.id}
                   name={employee.name}
                   role={employee.role}
                   img={employee.img}
+                  updateEmployee={updateEmployee}
                 />
               );
             })}
